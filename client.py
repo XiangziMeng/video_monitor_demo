@@ -21,7 +21,7 @@ def client_work(sock, fps=True):
             print('Time: %.2fs, FPS: %f' % (seconds, i / seconds))
 
 if __name__ == "__main__":
-    HOST, PORT = '192.168.1.167', 65432
+    HOST, PORT = '192.168.xxx.xxx', xxx 
     
     # connect to server
     sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)

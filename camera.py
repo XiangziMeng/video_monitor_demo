@@ -48,7 +48,7 @@ if __name__ == "__main__":
     time.sleep(2)
     
     # connect to server
-    HOST, PORT = '192.168.1.167', 65432 
+    HOST, PORT = '192.168.xxx.xxx', xxx
     sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
     sock.connect((HOST, PORT))
     

@@ -29,7 +29,7 @@ def transfer_work(sock, source, client):
    
     
 if __name__ == "__main__":
-    HOST, PORT = '192.168.1.167', 65432
+    HOST, PORT = '192.168.xxx.xxx', xxx
    
     # build server 
     sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
