@@ -16,12 +16,13 @@ def client_work(sock, fps=True):
         cv2.imshow("camera", img)
         cv2.waitKey(1)
         i += 1
-        if fps and i % 10 == 0:
+        if fps and i % 10 == 1:
             seconds = float(time.time() - t0)
-            print('Time: %.2fs, FPS: %f' % (seconds, i / seconds))
+            print('Time: %s, FPS: %f' % (time.strftime("%Y-%m-%d %H:%M:%S", time.localtime()), (i / seconds)))
+
 
 if __name__ == "__main__":
-    HOST, PORT = '192.168.xxx.xxx', xxx 
+    HOST, PORT = '192.168.1.167', 65432 
     
     # connect to server
     sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
