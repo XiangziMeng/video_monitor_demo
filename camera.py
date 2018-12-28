@@ -20,12 +20,16 @@ def source_work(sock):
             break
         elif signal == b'client offline':
             flag = b'client offline'
+            camera.close()
             time.sleep(2)
             continue
         elif signal == b'client  online' or flag == b'client  online':
-            flag = b'client  online'
+            if flag != b'client  online':
+                camera = PiCamera()
+                camera.start_preview()
+                time.sleep(2)
+                flag = b'client  online'
         elif flag == b'client offline':
-            time.sleep(2)
             continue
         try:
             stream = BytesIO()
@@ -42,11 +46,6 @@ def source_work(sock):
 
 
 if __name__ == "__main__":
-    # open camera
-    camera = PiCamera()
-    camera.start_preview()
-    time.sleep(2)
-    
     # connect to server
     HOST, PORT = '192.168.1.167', 65432 
     sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
