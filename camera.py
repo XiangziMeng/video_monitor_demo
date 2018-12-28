@@ -47,7 +47,7 @@ def source_work(sock):
 
 if __name__ == "__main__":
     # connect to server
-    HOST, PORT = '192.168.xxx.xxx', xxx
+    HOST, PORT = '192.168.1.167', 65432 
     sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
     sock.connect((HOST, PORT))
     
