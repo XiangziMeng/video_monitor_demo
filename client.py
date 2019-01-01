@@ -4,17 +4,16 @@ import cv2
 from threading import Thread
 from multiprocessing import Process
 from utils import *
+import numpy as np
 
 def client_work(sock, fps=True):
     t0 = time.time()
     i = 0
     while True:
         file_head = sock.recv(10)
-        filename = './pictures/%d.png' % (i % 200)
-        with open(filename, 'wb') as fp:
-            data = read_one_file(file_head, sock) 
-            fp.write(data)
-        img = cv2.imread(filename)
+        data = read_one_file(file_head, sock) 
+        nparr = np.fromstring(data, np.uint8)
+        img = cv2.imdecode(nparr, cv2.IMREAD_COLOR)
         cv2.imshow("camera", img)
         cv2.waitKey(1)
         i += 1
